@@ -1,0 +1,47 @@
+<%- include('./includes/head') %>
+  <%- include("./includes/nav") %>
+
+    <div class="container my-5">
+      <h1 class="m-auto text-center">Contacts</h1>
+      <h4 class="m-auto text-center">Acess your contacts here</h4>
+      <%- include("./includes/msgs") %>
+        <% if (Object.keys(contacts).length> 0) { %>
+          <table class="table my-3 m-auto p-5 border">
+            <tr>
+              <th>Name</th>
+              <th>Second Name</th>
+              <th>E-mail</th>
+              <th>Tel</th>
+              <th>Created At</th>
+              <th>Options</th>
+            </tr>
+            <% contacts.forEach(contact=> { %>
+              <tr>
+                <td scope="row">
+                  <%=contact.name%>
+                </td>
+                <td>
+                  <%=contact.secondname%>
+                </td>
+                <td>
+                  <%=contact.email%>
+                </td>
+                <td>
+                  <%=contact.telefone%>
+                </td>
+                <td>
+                  <%=contact.createdAt%>
+                </td>
+                <td>
+                  <a href="/contact/edit/<%=contact._id%>" class="btn btn-primary btn-sm">Edit</a>
+                  <a href="/contact/delete/<%=contact._id%>" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+              </tr>
+              <% }) %>
+          </table>
+          <% } else { %>
+            <p class="fs-4 m-auto text-center my-5 p-5 border">There no contacts to show</p>
+            <% } %>
+    </div>
+
+    <%- include('./includes/footer') %>
