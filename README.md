@@ -16,3 +16,4 @@ Packages used:
 - bcryptjs
 - dotenv
 
+## Its possible to create many users and store many contacts individually
