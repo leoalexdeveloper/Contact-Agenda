@@ -10,6 +10,11 @@
           <div class="col-lg-6 my-4">
             <h1 class="">Create account</h1>
             <form method="post" action="/login/register">
+              <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+              <div class="mb-3">
+                <label for="exampleInputName1" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" id="exampleInputName1" aria-describedby="nameHelp">
+              </div>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email" id="exampleInputEmail1"
@@ -28,6 +33,7 @@
           <div class="col-lg-6 my-4">
             <h1 class="">Enter:</h1>
             <form method="post" action="/login/login">
+              <input type="hidden" name="_csrf" value="<%=csrfToken%>">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email" id="exampleInputEmail1"

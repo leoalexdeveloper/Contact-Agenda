@@ -5,6 +5,8 @@
       <h1 class="m-auto text-center">Contacts</h1>
       <h4 class="m-auto text-center">Acess your contacts here</h4>
       <%- include("./includes/msgs") %>
+        <h4>Contacts of: <%=user.name%>
+        </h4>
         <% if (Object.keys(contacts).length> 0) { %>
           <table class="table my-3 m-auto p-5 border">
             <tr>

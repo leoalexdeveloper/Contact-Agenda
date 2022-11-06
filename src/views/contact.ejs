@@ -10,7 +10,8 @@
           <div class="col-lg-6 my-4 m-auto">
             <% if(Object.keys(contact).length>0){ %>
               <h1 class="">Edit <span class="text-info">
-                  <%=contact.name%>
+                  <%=contact.secondname%>,
+                    <%=contact.name%>
                 </span>
               </h1>
               <form method="post" action="/contact/edit/<%=contact._id%>">
@@ -18,7 +19,7 @@
                   <h1 class="">Add a contact</h1>
                   <form method="post" action="/contact/register">
                     <% } %>
-
+                      <input type="hidden" name="_csrf" value="<%=csrfToken%>">
                       <div class="mb-3">
                         <label for="exampleInputName1" class="form-label">Name</label>
                         <input type="text" class="form-control" name="name" id="exampleInputName1"

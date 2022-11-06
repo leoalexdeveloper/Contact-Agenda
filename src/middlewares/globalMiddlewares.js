@@ -13,3 +13,16 @@ module.exports.userRequired = (req, res, next) => {
   }
   next()
 }
+
+module.exports.generateCsrfToken = (req, res, next) => {
+  res.locals.csrfToken = req.csrfToken()
+  next()
+}
+
+module.exports.csrfError = (err, req, res, next) => {
+  if(err && err.code === 'EBADCSRFTOKEN'){
+    res.redirect('/')
+    return
+  }
+  next()
+}

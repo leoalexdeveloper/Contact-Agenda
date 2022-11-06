@@ -3,6 +3,7 @@ const validator = require('validator')
 const bcrypt = require('bcryptjs')
 
 const LoginSchema = mongoose.Schema({
+  name: {type: String, required: true},
   email: { type: String, required: true },
   password: { type: String, required: true }
 })
@@ -51,6 +52,7 @@ class Login {
 
   validate() {
     this.cleanUp()
+    if (this.body.name && !validator.isAlphanumeric(this.body.name, [process.env.appLocale])) this.errors.push('Name must have only numbers and letters')
     if (!validator.isEmail(this.body.email)) this.errors.push('Invalid Email')
     if (!(this.body.password.length > 3 && this.body.password.length < 50)) this.errors.push('Password must be between 3 and 50 characters')
   }
